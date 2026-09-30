@@ -111,23 +111,6 @@ async function charger() {
   });
 }
 
-messages.forEach((m) => {
-  const bloc = document.createElement("div");
-
-  const qui = m.author === monId ? "Moi" : "L'autre";
-  const date = new Date(m.created_at).toLocaleString("fr-FR");
-  const entete = document.createElement("small");
-  entete.textContent = qui + " — " + date;
-
-  const corps = document.createElement("p");
-  if (m.kind === "texte") {
-    corps.textContent = m.content;
-  }
-
-  bloc.append(entete, corps);
-  liste.append(bloc);
-});
-
 formulaire.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -181,7 +164,7 @@ micro.addEventListener("click", async () => {
   try {
     flux = await navigator.mediaDevices.getUserMedia({ audio: true });
   } catch (err) {
-    info.textContent = "Micro refusé ou indisponible.";
+    info.textContent = "Micro : " + err.name + " - " + err.message;
     return;
   }
 
@@ -224,7 +207,7 @@ async function envoyerVocal(blob) {
     .upload(chemin, blob, { contentType: type });
 
   if (erreurFichier) {
-    info.textContent = "Échec de l'envoi du vocal.";
+    info.textContent = "Envoi vocal : " + erreurFichier.message;
     return;
   }
 
