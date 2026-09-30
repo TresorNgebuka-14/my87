@@ -77,7 +77,7 @@ async function charger() {
 
   messages.forEach((m) => {
     const bloc = document.createElement("div");
-
+    bloc.className = m.author === monId ? "moi" : "autre";
     const qui = m.author === monId ? "Moi" : "L'autre";
     const date = new Date(m.created_at).toLocaleString("fr-FR");
     const entete = document.createElement("small");
