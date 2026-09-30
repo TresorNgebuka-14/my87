@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nos messages</title>
+</head>
+<body>
+  <a href="accueil.html">← Accueil</a>
+  <h1>Nos messages</h1>
+
+  <div id="liste"></div>
+
+  <form id="formulaire">
+    <textarea id="texte" placeholder="Écris un mot..." required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <div>
+  <button id="micro" type="button">🎤 Enregistrer un vocal</button>
+  <span id="etat"></span>
+</div>
+  <p id="info"></p>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="messages.js"></script>
+</body>
+</html>
